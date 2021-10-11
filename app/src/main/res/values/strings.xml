@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Health Care</string>
+    <string name="username">Username</string>
+    <string name="enter_username">Enter username</string>
+    <string name="email">Email</string>
+    <string name="enter_email">Enter email</string>
+    <string name="password">Password</string>
+    <string name="enter_password">Enter password</string>
+    <string name="already_registered">Already registered? /nClick here to login</string>
+    <string name="register_button">Register user</string>
+    <string name="login_button">Login</string>
+    <string name="profile">Profile</string>
+</resources>

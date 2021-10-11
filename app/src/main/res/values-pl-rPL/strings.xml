@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Health Care</string>
+    <string name="username">Nazwa użytkownika</string>
+    <string name="enter_username">Wpisz nazwę użytkownika</string>
+    <string name="enter_email">Wpisz adres mailowy</string>
+    <string name="email">Adres email</string>
+    <string name="password">Hasło</string>
+    <string name="enter_password">Wpisz hasło</string>
+    <string name="already_registered">Masz już konto? /nKliknij tutaj aby się zalogować</string>
+    <string name="register_button">Zarejestruj się</string>
+    <string name="login_button">Zaloguj się</string>
+    <string name="profile">Profil</string>
+</resources>
