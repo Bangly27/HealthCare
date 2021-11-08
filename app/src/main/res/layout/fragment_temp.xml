@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light">
+
+    <TextView
+        android:id="@+id/text_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperature Fragment"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/temperature_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_weight"
+        android:hint="@string/temperature"
+        />
+
+    <EditText
+        android:id="@+id/date_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temperature_input"
+        android:hint="Date"
+        />
+
+    <EditText
+        android:id="@+id/time_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_input"
+        android:hint="Time"
+        />
+
+    <EditText
+        android:id="@+id/food_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_input"
+        android:hint="@string/food"
+        />
+
+    <EditText
+        android:id="@+id/other_info_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/food_input"
+        android:hint="@string/other_info"
+        />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_add"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/other_info_input" />
+</RelativeLayout>

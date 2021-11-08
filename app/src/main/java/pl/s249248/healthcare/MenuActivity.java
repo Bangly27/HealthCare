@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MenuActivity extends AppCompatActivity {
 
-    Button buttonProfile;
+    Button buttonProfile, buttonAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +17,22 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         buttonProfile = findViewById(R.id.buttonProfile);
+        buttonAdd = findViewById(R.id.menu_addButton);
 
-        Intent intent = new Intent(this, ProfileActivity.class);
+        Intent profile = new Intent(this, ProfileActivity.class);
+        Intent add = new Intent(this, AddMeasurement.class);
 
         buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(intent);
+                startActivity(profile);
+            }
+        });
+
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(add);
             }
         });
     }

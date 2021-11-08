@@ -10,4 +10,13 @@
     <string name="register_button">Register user</string>
     <string name="login_button">Login</string>
     <string name="profile">Profile</string>
+    <string name="menu_add">Add Measurement</string>
+    <string name="weight">Weight</string>
+    <string name="temperature">Temperature</string>
+    <string name="pressure">Pressuje</string>
+    <string name="pressure_diastole">Pressure Diastole</string>
+    <string name="pressure_systole">Pressure Systole</string>
+    <string name="pulse">Pulse</string>
+    <string name="food">Food</string>
+    <string name="other_info">Other info</string>
 </resources>

@@ -11,4 +11,13 @@
     <string name="register_button">Zarejestruj się</string>
     <string name="login_button">Zaloguj się</string>
     <string name="profile">Profil</string>
+    <string name="menu_add">Dodaj pomiar</string>
+    <string name="weight">Waga</string>
+    <string name="temperature">Temperatura</string>
+    <string name="pressure">Ciśnienie</string>
+    <string name="pulse">Puls</string>
+    <string name="pressure_systole">Ciśnienie skurczowe</string>
+    <string name="pressure_diastole">Ciśnienie rozkurczowe</string>
+    <string name="food">Jedzenie</string>
+    <string name="other_info">Inne informacje</string>
 </resources>
