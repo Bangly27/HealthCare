@@ -29,7 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
         textViewUsername = findViewById(R.id.textViewUsername);
         textViewEmail = findViewById(R.id.textViewEmail);
 
-        textViewUsername.setText(SharedPrefManager.getInstance(this).getUserEmail());
+        textViewUsername.setText(SharedPrefManager.getInstance(this).getUsername());
         textViewEmail.setText(SharedPrefManager.getInstance(this).getUserEmail());
     }
 

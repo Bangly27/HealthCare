@@ -1,6 +1,7 @@
 package pl.s249248.healthcare;
 
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import java.util.Map;
 
 public class TemperatureFragment extends Fragment {
 
@@ -29,6 +38,8 @@ public class TemperatureFragment extends Fragment {
 
         addButton = view.findViewById(R.id.addButton);
 
+        AddMeasurement add = new AddMeasurement();
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +51,8 @@ public class TemperatureFragment extends Fragment {
 
                 final String text = TemperatureString + "\n" + DateString + "\n" + TimeString + "\n"  + FoodString + "\n"  + OtherInfoString;
                 Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
+
+                add.addTemp(TemperatureString, DateString, TimeString, FoodString, OtherInfoString);
             }
         });
 

@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MenuActivity extends AppCompatActivity {
 
-    Button buttonProfile, buttonAdd;
+    Button buttonProfile, buttonWeight, buttonTemp, buttonPressure, buttonGlucose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +17,16 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         buttonProfile = findViewById(R.id.buttonProfile);
-        buttonAdd = findViewById(R.id.menu_addButton);
+        buttonWeight = findViewById(R.id.buttonWeight);
+        buttonTemp = findViewById(R.id.buttonTemp);
+        buttonPressure = findViewById(R.id.buttonPressure);
+        buttonGlucose = findViewById(R.id.buttonGlucose);
 
         Intent profile = new Intent(this, ProfileActivity.class);
-        Intent add = new Intent(this, AddMeasurement.class);
+        Intent addWeight = new Intent(this, AddWeightActivity.class);
+        Intent addTemperature = new Intent(this, AddTemperatureActivity.class);
+        Intent addPressure = new Intent(this, AddPressureActivity.class);
+        Intent addGlucose = new Intent(this, AddGlucoseActivity.class);
 
         buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,10 +35,31 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
+        buttonWeight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(add);
+                startActivity(addWeight);
+            }
+        });
+
+        buttonTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(addTemperature);
+            }
+        });
+
+        buttonPressure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(addPressure);
+            }
+        });
+
+        buttonGlucose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(addGlucose);
             }
         });
     }
