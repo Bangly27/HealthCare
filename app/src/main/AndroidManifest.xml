@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddGlucoseActivity"></activity>
+        <activity
+            android:name=".DisplayListView"
+            android:exported="false" />
+        <activity android:name=".ReminderActivity" />
+        <activity android:name=".WeightHistoryActivity" />
+        <activity android:name=".AddGlucoseActivity" />
         <activity android:name=".AddPressureActivity" />
         <activity android:name=".AddWeightActivity" />
         <activity android:name=".AddTemperatureActivity" />

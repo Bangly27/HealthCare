@@ -9,24 +9,33 @@ import android.widget.Button;
 
 public class MenuActivity extends AppCompatActivity {
 
-    Button buttonProfile, buttonWeight, buttonTemp, buttonPressure, buttonGlucose;
+    Button buttonProfile, buttonWeight, buttonTemp, buttonPressure, buttonGlucose, buttonWeightHistory, buttonTempHistory, buttonPressureHistory, buttonGlucoseHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        buttonProfile = findViewById(R.id.buttonProfile);
-        buttonWeight = findViewById(R.id.buttonWeight);
-        buttonTemp = findViewById(R.id.buttonTemp);
-        buttonPressure = findViewById(R.id.buttonPressure);
-        buttonGlucose = findViewById(R.id.buttonGlucose);
+        buttonProfile = findViewById(R.id.profile_button);
+        buttonWeight = findViewById(R.id.add_weight);
+        buttonTemp = findViewById(R.id.add_temp);
+        buttonPressure = findViewById(R.id.add_pressure);
+        buttonGlucose = findViewById(R.id.add_glucose);
+
+        buttonWeightHistory = findViewById(R.id.weight_history);
+        buttonTempHistory = findViewById(R.id.temp_history);
+        buttonPressureHistory = findViewById(R.id.pressure_history);
+        buttonGlucoseHistory = findViewById(R.id.glucose_history);
 
         Intent profile = new Intent(this, ProfileActivity.class);
         Intent addWeight = new Intent(this, AddWeightActivity.class);
         Intent addTemperature = new Intent(this, AddTemperatureActivity.class);
         Intent addPressure = new Intent(this, AddPressureActivity.class);
         Intent addGlucose = new Intent(this, AddGlucoseActivity.class);
+        Intent WeightHistory = new Intent(this, WeightHistoryActivity.class);
+        //Intent TempHistory = new Intent(this, TemperatureHistoryActivity.class);
+        //Intent PressureHistory = new Intent(this, PressureHistoryActivity.class);
+        //Intent GlucoseHistory = new Intent(this, GlucoseHistoryActivity.class);
 
         buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +69,13 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(addGlucose);
+            }
+        });
+
+        buttonWeightHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(WeightHistory);
             }
         });
     }

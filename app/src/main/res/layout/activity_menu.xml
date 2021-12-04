@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,109 +7,166 @@
     tools:context=".MenuActivity">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="LOGO PLACE HOLDER"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="HEALTH CARE"/>
+
+    <TextView
+        android:id="@+id/measurements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:text="Measurements: "
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weight"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/add_weight"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"/>
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:id="@+id/add_weight"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTemp" />
+        android:drawableLeft="@drawable/ic_add"
+        android:layout_below="@id/measurements"
+        android:layout_toLeftOf="@id/weight_history"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/weight_history"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_history"
+        android:layout_below="@id/measurements"
+        android:layout_alignParentRight="true"/>
+
+
+    <TextView
+        android:id="@+id/temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        android:text="@string/temperature"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/add_temp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"/>
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
+        android:id="@+id/add_temp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        android:drawableLeft="@drawable/ic_add"
+        android:layout_below="@id/add_weight"
+        android:layout_toLeftOf="@id/temp_history"/>
 
     <Button
-        android:id="@+id/buttonProfile"
+        android:id="@+id/temp_history"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_history"
+        android:layout_below="@id/weight_history"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/pressure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        android:text="@string/pressure"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/add_pressure"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"/>
 
     <Button
-        android:id="@+id/buttonGlucose"
-        android:layout_width="wrap_content"
+        android:id="@+id/add_pressure"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="GLUCOSE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonPressure"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        android:drawableLeft="@drawable/ic_add"
+        android:layout_below="@id/add_temp"
+        android:layout_toLeftOf="@id/temp_history"/>
 
     <Button
-        android:id="@+id/buttonWeight"
+        android:id="@+id/pressure_history"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_history"
+        android:layout_below="@id/temp_history"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/glucose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:text="WEIGHT"
-        app:layout_constraintEnd_toStartOf="@+id/buttonTemp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        android:text="@string/glucose"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/add_glucose"
+        android:textColor="@color/black"/>
 
     <Button
-        android:id="@+id/buttonTemp"
-        android:layout_width="wrap_content"
+        android:id="@+id/add_glucose"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:text="TEMP"
-        app:layout_constraintEnd_toStartOf="@+id/buttonPressure"
-        app:layout_constraintStart_toEndOf="@+id/buttonWeight"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        android:drawableLeft="@drawable/ic_add"
+        android:layout_below="@id/add_pressure"
+        android:layout_toLeftOf="@id/temp_history"/>
 
     <Button
-        android:id="@+id/buttonPressure"
+        android:id="@+id/glucose_history"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_history"
+        android:layout_below="@id/pressure_history"
+        android:layout_alignParentRight="true"/>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:text="PRESSURE"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGlucose"
-        app:layout_constraintStart_toEndOf="@+id/buttonTemp"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@id/glucose"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/reminder_button"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="Reminder"/>
+
+        <Button
+            android:id="@+id/bmi_button"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="BMI"
+            android:textSize="40dp"
+            android:layout_toRightOf="@+id/reminder_button"
+            android:layout_marginLeft="10dp"/>
+
+        <Button
+            android:id="@+id/profile_button"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="PROFILE"
+            android:layout_toRightOf="@+id/bmi_button"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

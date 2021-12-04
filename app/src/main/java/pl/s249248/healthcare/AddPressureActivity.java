@@ -2,10 +2,13 @@ package pl.s249248.healthcare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -17,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +28,9 @@ public class AddPressureActivity extends AppCompatActivity {
 
     EditText Pressure_Diastole, Pressure_Systole, Pulse , Date, Time, Food, Other_Info;
     Button addButton;
-    String Username, UserEmail;
+    String Username, UserID;
+    Switch date_switch;
+    boolean isSwitchOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,7 @@ public class AddPressureActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_pressure);
 
         Username = SharedPrefManager.getInstance(this).getUsername();
-        UserEmail = SharedPrefManager.getInstance(this).getUserEmail();
+        UserID = SharedPrefManager.getInstance(this).getUserID();
 
         Pressure_Diastole = findViewById(R.id.pressure_diastole_input);
         Pressure_Systole = findViewById(R.id.pressure_systole_input);
@@ -50,6 +56,31 @@ public class AddPressureActivity extends AppCompatActivity {
                 addMeasurement();
             }
         });
+
+        date_switch = findViewById(R.id.switch_date);
+
+        date_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(date_switch.isChecked()){
+                    isSwitchOn = true;
+                    Date.setEnabled(false);
+                    Time.setEnabled(false);
+                    setCurrentDate();
+                    setCurrentTime();
+                }
+                else{
+                    isSwitchOn = false;
+                    Date.setEnabled(true);
+                    Time.setEnabled(true);
+                    Date.setText("");
+                    Date.setHint("Date (format: YYYY-MM-DD)");
+                    Time.setText("");
+                    Time.setHint("Time (format HH:MM)");
+                }
+            }
+        });
+
     }
 
     private void addMeasurement(){
@@ -94,11 +125,28 @@ public class AddPressureActivity extends AppCompatActivity {
                 params.put("food", FoodString);
                 params.put("other_info", OtherInfoString);
                 params.put("username", Username);
-                params.put("userid", UserEmail);
+                params.put("userid", UserID);
                 return params;
             }
         };
 
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+    }
+
+    private void setCurrentDate(){
+        Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH)+1;
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        String date = Integer.toString(year) + "-" + Integer.toString(month) + "-" + Integer.toString(day);
+        Date.setText(date);
+    }
+
+    private void setCurrentTime(){
+        Calendar c = Calendar.getInstance();
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int minute = c.get(Calendar.MINUTE);
+        String time = Integer.toString(hour) + ":" + Integer.toString(minute);
+        Time.setText(time);
     }
 }

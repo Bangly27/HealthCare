@@ -24,7 +24,7 @@ public class AddWeightActivity extends AppCompatActivity {
 
     EditText Weight, Date, Time, Food, Other_Info;
     Button addButton;
-    String Username, UserEmail;
+    String Username, UserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class AddWeightActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_weight);
 
         Username = SharedPrefManager.getInstance(this).getUsername();
-        UserEmail = SharedPrefManager.getInstance(this).getUserEmail();
+        UserID = SharedPrefManager.getInstance(this).getUserID();
 
         Weight = findViewById(R.id.weight_input);
         Date = findViewById(R.id.date_input);
@@ -89,7 +89,7 @@ public class AddWeightActivity extends AppCompatActivity {
                 params.put("food", FoodString);
                 params.put("other_info", OtherInfoString);
                 params.put("username", Username);
-                params.put("userid", UserEmail);
+                params.put("userid", UserID);
                 return params;
             }
         };

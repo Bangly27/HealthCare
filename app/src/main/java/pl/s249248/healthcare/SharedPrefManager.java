@@ -27,12 +27,12 @@ public class SharedPrefManager {
         return instance;
     }
 
-    public boolean userLogin(int id, String username, String email){
+    public boolean userLogin(String id, String username, String email){
 
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt(KEY_USER_ID, id);
+        editor.putString(KEY_USER_ID, id);
         editor.putString(KEY_USERNAME, username);
         editor.putString(KEY_USER_EMAIL, email);
 
@@ -65,5 +65,10 @@ public class SharedPrefManager {
     public String getUserEmail() {
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_USER_EMAIL, null);
+    }
+
+    public String getUserID(){
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_ID, null);
     }
 }

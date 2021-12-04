@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp">
+
+    <TextView
+        android:id="@+id/tv_weight"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:text="123.9"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="130dp"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/tv_weight"
+        android:text="2021-12-01"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/tv_date"
+        android:text="12:20"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:id="@+id/tv_food"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/tv_time"
+        android:text="Before eating"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+
+</RelativeLayout>

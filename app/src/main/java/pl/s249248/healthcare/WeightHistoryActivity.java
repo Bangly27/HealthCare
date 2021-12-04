@@ -1,14 +1,19 @@
 package pl.s249248.healthcare;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,57 +23,44 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity {
+public class WeightHistoryActivity extends AppCompatActivity {
 
-    private EditText editTextUsername, editTextPassword;
-    private Button buttonLogin;
+    String Username, UserID;
+    TextView textView;
+    String json_string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_weight_history);
 
-        editTextUsername = findViewById(R.id.editTextUsername);
-        editTextPassword = findViewById(R.id.editTextPassword);
+        Username = SharedPrefManager.getInstance(this).getUsername();
+        UserID = SharedPrefManager.getInstance(this).getUserID();
 
-        buttonLogin = findViewById(R.id.buttonLogin);
+        textView = findViewById(R.id.json);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                userLogin();
-            }
-        });
+        getMeasurementsHistory();
     }
 
-    private void userLogin(){
-        final String username = editTextUsername.getText().toString().trim();
-        final String password = editTextPassword.getText().toString().trim();
-
-        if(SharedPrefManager.getInstance(this).isLoggedIn()){
-            finish();
-            startActivity(new Intent(this, MenuActivity.class));
-            return;
-        }
-
-        Intent intent = new Intent(this, MenuActivity.class);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_LOGIN, new Response.Listener<String>() {
+    private void getMeasurementsHistory(){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_GET_WEIGHT, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject obj = new JSONObject(response);
                     if(!obj.getBoolean("error")){
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getString("id"), obj.getString("username"), obj.getString("email"));
-                        Toast.makeText(getApplicationContext(),"User login successful",Toast.LENGTH_LONG).show();
-                        startActivity(intent);
-                        finish();
+                        //Toast.makeText(getApplicationContext(),obj.getString("message"),Toast.LENGTH_LONG).show();
+                        json_string = response;
+                        textView.setText(obj.getString("message"));
                     }else{
                         Toast.makeText(getApplicationContext(),obj.getString("message"),Toast.LENGTH_LONG).show();
                     }
@@ -85,12 +77,22 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("username", username);
-                params.put("password", password);
+                params.put("glucose", Username);
+                params.put("date", Username);
+                params.put("time", Username);
+                params.put("food", Username);
+                params.put("other_info", Username);
+                params.put("user_name", Username);
+                params.put("user_id", UserID);
                 return params;
             }
         };
-
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+    }
+
+    public void parseJSON(View view){
+        Intent intent = new Intent(this, DisplayListView.class);
+        intent.putExtra("json_data",json_string);
+        startActivity(intent);
     }
 }
