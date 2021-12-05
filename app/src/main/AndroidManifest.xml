@@ -13,6 +13,9 @@
         android:theme="@style/Theme.HealthCare"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".BMIActivity"
+            android:exported="false" />
+        <activity
             android:name=".DisplayListView"
             android:exported="false" />
         <activity android:name=".ReminderActivity" />

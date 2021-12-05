@@ -1,10 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ReminderActivity">
 
+    <TextView
+        android:id="@+id/textview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remind me about:"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/textview_title">
+
+        <RadioButton
+            android:id="@+id/medicine_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medicine:"/>
+
+        <RadioButton
+            android:id="@+id/next_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next measurement:" />
+
+        <RadioButton
+            android:id="@+id/custom_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Custom:"/>
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_medicine"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_title"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"/>
+
+    <EditText
+        android:id="@+id/et_next"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_medicine"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentRight="true"/>
+
+    <EditText
+        android:id="@+id/et_custom"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_next"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Alarm Set"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/button"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set time"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel alarm"
+        android:layout_below="@+id/button"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>

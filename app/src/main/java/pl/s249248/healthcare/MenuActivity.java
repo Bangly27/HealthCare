@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MenuActivity extends AppCompatActivity {
 
-    Button buttonProfile, buttonWeight, buttonTemp, buttonPressure, buttonGlucose, buttonWeightHistory, buttonTempHistory, buttonPressureHistory, buttonGlucoseHistory;
+    Button buttonProfile, buttonWeight, buttonTemp, buttonPressure, buttonGlucose, buttonWeightHistory, buttonTempHistory, buttonPressureHistory, buttonGlucoseHistory, buttonBMI, buttonReminder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,9 @@ public class MenuActivity extends AppCompatActivity {
         buttonPressureHistory = findViewById(R.id.pressure_history);
         buttonGlucoseHistory = findViewById(R.id.glucose_history);
 
+        buttonBMI = findViewById(R.id.bmi_button);
+        buttonReminder = findViewById(R.id.reminder_button);
+
         Intent profile = new Intent(this, ProfileActivity.class);
         Intent addWeight = new Intent(this, AddWeightActivity.class);
         Intent addTemperature = new Intent(this, AddTemperatureActivity.class);
@@ -36,6 +39,8 @@ public class MenuActivity extends AppCompatActivity {
         //Intent TempHistory = new Intent(this, TemperatureHistoryActivity.class);
         //Intent PressureHistory = new Intent(this, PressureHistoryActivity.class);
         //Intent GlucoseHistory = new Intent(this, GlucoseHistoryActivity.class);
+        Intent bmi = new Intent(this, BMIActivity.class);
+        Intent reminder = new Intent(this, ReminderActivity.class);
 
         buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +81,20 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(WeightHistory);
+            }
+        });
+
+        buttonBMI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(bmi);
+            }
+        });
+
+        buttonReminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(reminder);
             }
         });
     }
